@@ -206,6 +206,7 @@ checksum = "d7afe4a420e3fe79967a00898cc1f4db7c8a49a9333a29f8a4bd76a253d5cd04"
 name = "hello-rs"
 version = "0.1.0"
 dependencies = [
+ "netlify_lambda",
  "netlify_lambda_http",
  "tokio",
 ]

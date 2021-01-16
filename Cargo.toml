@@ -8,4 +8,5 @@ edition = "2018"
 
 [dependencies]
 netlify_lambda_http = "0.2"
+netlify_lambda = "0.2"
 tokio = { version = "1.0.1", features = ["macros"] }
