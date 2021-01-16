@@ -2,7 +2,7 @@ use std::error;
 
 use netlify_lambda_http::{
     handler,
-    http::Method,
+    http::{request, Method},
     lambda::{self, lambda, Context},
     IntoResponse, Request, RequestExt,
 };
@@ -19,12 +19,8 @@ async fn hello(request: Request, context: Context) -> Result<impl IntoResponse, 
     if request.method() != Method::POST {
         return Ok("Not allowed".to_string());
     }
-
     Ok(format!(
         "hello {}",
-        request
-            .query_string_parameters()
-            .get("name")
-            .unwrap_or_else(|| "stranger")
+        request.body().get(0).unwrap().to_string()
     ))
 }
